@@ -1,3 +1,1 @@
-## The Knack
-
-Interested in the knack?
+## get the knack
