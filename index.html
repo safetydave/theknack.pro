@@ -2,11 +2,16 @@
   <head>
     <title>the knack</title>
   </head>
-  <body>
-    <video autoplay muted loop width="100%">
+  <body style="font-family:sans-serif;">
+    <video id="vid" autoplay muted loop width="100%">
       <source src="wheely_o8nt.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <p>track your wheelies and improve</p>
+    <p>
+      Track your wheelies and improve.
+      Video not playing?
+      <a href="javascript:document.getElementById('vid').play()">play</a> |
+      <a href="javascript:document.getElementById('vid').pause()">pause</a>
+    </p>
   </body>
 </html>
