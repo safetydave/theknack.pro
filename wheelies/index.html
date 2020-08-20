@@ -22,21 +22,26 @@
 
 <body id="bg" style="font-family:sans-serif;">
   <div class="container-fluid">
-    <h1><a href="javascript:startSensors()">start</a></h1>
+    <h1 style="text-align:center;"><a href="javascript:startSensors()">start session</a></h1>
     <p>
+    <!--
     <a href="javascript:startWheelie()">wheelie start</a>
     <a href="javascript:stopWheelie()">wheelie stop</a>
+    -->
     </p>
-    <h1>Timer</h1>
-     <p>timer = <span id="timer">0</span></p>     
-    <h1>Orientation</h1>
+    <h3 style="text-align:center;">orientation</h1>
+     <p style="text-align:center;">pitch: <span id="ori_b">0</span>&deg;</p> 
+     <p style="text-align:center;">wheel up: <span id="timer_time">0</span>s</p>     
+    <h1 style="text-align:center;"><span id="timer_rock"></span></h1>
+    
+    <!--
      <p>ori a = <span id="ori_a">0</span></p> 
-     <p>ori b = <span id="ori_b">0</span></p> 
      <p>ori c = <span id="ori_c">0</span></p> 
     <h1>Motion</h1>
      <p>acc x = <span id="acc_x">0</span></p> 
      <h1>Interval</h1>
      <p>int = <span id="interval">-1</span></p>
+     -->
 
   </div>
   <!-- Bootstrap stuff -->

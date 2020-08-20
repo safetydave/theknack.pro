@@ -9,9 +9,16 @@ function updateDisplay(id, value){
     document.getElementById(id).innerHTML = value.toFixed(3);
 }
 
+function updateTimer(value){
+  if (value != null) {
+    document.getElementById('timer_rock').innerHTML = "🤘".repeat(value);
+    document.getElementById('timer_time').innerHTML = value;
+  }
+}
+
 function handleMotion(event) {
-  updateDisplay('acc_x', event.acceleration.x);
-  updateDisplay('interval', event.interval);
+  //updateDisplay('acc_x', event.acceleration.x);
+  //updateDisplay('interval', event.interval);
 }
 
 var wheel_up = false;
@@ -40,10 +47,11 @@ function monitorWheelie(value) {
 var wheelie_timer;
 
 function startTimer() {
+  updateTimer(0);
   var start = Date.now();
   wheelie_timer = setInterval(function() {
     var delta = Date.now() - start;
-    updateDisplay('timer', Math.floor(delta / 1000));
+    updateTimer(Math.floor(delta / 1000));
   }, 1000);
 }
 
@@ -52,9 +60,9 @@ function stopTimer() {
 }
 
 function handleOrientation(event) {
-  updateDisplay('ori_a', event.alpha);
+  //updateDisplay('ori_a', event.alpha);
   updateDisplay('ori_b', event.beta);
-  updateDisplay('ori_c', event.gamma);
+  //updateDisplay('ori_c', event.gamma);
   
   monitorWheelie(event.beta);
 }
