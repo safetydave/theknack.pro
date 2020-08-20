@@ -12,9 +12,11 @@ function updateDisplay(id, value){
 
 function handleMotion(event) {
   updateDisplay('acc_x', event.acceleration.x);
+  updateDisplay('interval', event.interval);
 }
 
 function startSensors() {
+  console.log('starting');
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
