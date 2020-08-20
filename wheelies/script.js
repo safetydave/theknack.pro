@@ -15,19 +15,22 @@ function handleMotion(event) {
   updateDisplay('interval', event.interval);
 }
 
+function showWheelie(value) {
+  if (value > 50.5) 
+    document.getElementById('bg').style = "font-family:sans-serif;background-color:green";
+  else
+    document.getElementById('bg').style = "font-family:sans-serif;background-color:yellow";
+}
+
 function handleOrientation(event) {
   updateDisplay('ori_a', event.alpha);
   updateDisplay('ori_b', event.beta);
-  updateDisplay('ori_g', event.gamma);
-  if (event.beta > 50.5) {
-    document.getElementById("bg").style = "font-family:sans-serif;background-color:green";
-  }  
+  updateDisplay('ori_c', event.gamma);
 }
 
 
 function startSensors() {
   document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
-  console.log('starting');
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
