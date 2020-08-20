@@ -19,11 +19,14 @@ function handleOrientation(event) {
   updateDisplay('ori_a', event.alpha);
   updateDisplay('ori_b', event.beta);
   updateDisplay('ori_g', event.gamma);
-  incrementEventCount();
+  if (event.beta > 50.5) {
+    document.getElementById("bg").style = "font-family:sans-serif;background-color:green";
+  }  
 }
 
 
 function startSensors() {
+  document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
   console.log('starting');
   if (
     DeviceMotionEvent &&
