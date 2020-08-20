@@ -15,6 +15,14 @@ function handleMotion(event) {
   updateDisplay('interval', event.interval);
 }
 
+function handleOrientation(event) {
+  updateDisplay('ori_a', event.alpha);
+  updateDisplay('ori_b', event.beta);
+  updateDisplay('ori_g', event.gamma);
+  incrementEventCount();
+}
+
+
 function startSensors() {
   console.log('starting');
   if (
@@ -25,6 +33,7 @@ function startSensors() {
   }
   
   window.addEventListener("devicemotion", handleMotion);
+  window.addEventListener("deviceorientation", handleOrientation);
 }
 
 //document.addEventListener('DOMContentLoaded', startSensors);
