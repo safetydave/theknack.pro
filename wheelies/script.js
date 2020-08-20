@@ -25,5 +25,5 @@ function startSensors() {
   window.addEventListener("devicemotion", handleMotion);
 }
 
-document.addEventListener('DOMContentLoaded', startSensors);
+//document.addEventListener('DOMContentLoaded', startSensors);
 //document.addEventListener('DOMContentLoaded', loadWam);
