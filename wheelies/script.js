@@ -14,20 +14,26 @@ function handleMotion(event) {
   updateDisplay('interval', event.interval);
 }
 
-var wheel_up;
+var wheel_up = false;
 
-function showWheelie(value) {
+function startWheelie() {
+  startTimer();
+  document.getElementById('bg').style = "font-family:sans-serif;background-color:green";
+}
+
+function stopWheelie() {
+  stopTimer();
+  document.getElementById('bg').style = "font-family:sans-serif;background-color:yellow";
+}
+
+function monitorWheelie(value) {
   if (value > 50.5) { 
-    if (!wheel_up)
-      startTimer();
+    if (!wheel_up) startWheelie();
     wheel_up = true;
-    document.getElementById('bg').style = "font-family:sans-serif;background-color:green";
   }
   else {
-    if (wheel_up)
-      stopTimer();
+    if (wheel_up) stopWheelie();
     wheel_up = false;
-    document.getElementById('bg').style = "font-family:sans-serif;background-color:yellow";
   }
 }
 
@@ -50,13 +56,14 @@ function handleOrientation(event) {
   updateDisplay('ori_b', event.beta);
   updateDisplay('ori_c', event.gamma);
   
-  showWheelie(event.beta);
+  monitorWheelie(event.beta);
 }
 
 
 function startSensors() {
   wheel_up = false;
   document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
+  console.log("🤘".repeat(10));
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
