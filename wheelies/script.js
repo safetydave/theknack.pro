@@ -4,7 +4,6 @@ async function loadWam() {
   model = await tf.loadLayersModel('https://theknack.pro/wheelies/accel_model/model.json');
 }
 
-
 function updateDisplay(id, value){
   if (value != null)
     document.getElementById(id).innerHTML = value.toFixed(3);
@@ -15,11 +14,35 @@ function handleMotion(event) {
   updateDisplay('interval', event.interval);
 }
 
+var wheel_up;
+
 function showWheelie(value) {
-  if (value > 50.5) 
+  if (value > 50.5) { 
+    if (!wheel_up)
+      startTimer();
+    wheel_up = true;
     document.getElementById('bg').style = "font-family:sans-serif;background-color:green";
-  else
+  }
+  else {
+    if (wheel_up)
+      stopTimer();
+    wheel_up = false;
     document.getElementById('bg').style = "font-family:sans-serif;background-color:yellow";
+  }
+}
+
+var wheelie_timer;
+
+function startTimer() {
+  var start = Date.now();
+  wheelie_timer = setInterval(function() {
+    var delta = Date.now() - start;
+    updateDisplay('timer', Math.floor(delta / 1000));
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(wheelie_timer);
 }
 
 function handleOrientation(event) {
@@ -32,6 +55,7 @@ function handleOrientation(event) {
 
 
 function startSensors() {
+  wheel_up = false;
   document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
   if (
     DeviceMotionEvent &&
