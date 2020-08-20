@@ -6,7 +6,7 @@ async function loadWam() {
 
 function updateDisplay(id, value){
   if (value != null)
-    document.getElementById(id).innerHTML = value.toFixed(3);
+    document.getElementById(id).innerHTML = value.toFixed(1);
 }
 
 function updateTimer(value){
