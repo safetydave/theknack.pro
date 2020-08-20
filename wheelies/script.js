@@ -71,7 +71,7 @@ function handleOrientation(event) {
 function startSensors() {
   wheel_up = false;
   document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
-  console.log("🤘".repeat(10));
+  document.getElementById("start_button").innerHTML = "wheelie session";
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
