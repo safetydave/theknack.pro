@@ -11,8 +11,9 @@ function updateDisplay(id, value){
 
 function updateTimer(value){
   if (value != null) {
-    document.getElementById('timer_rock').innerHTML = "🤘".repeat(value);
-    document.getElementById('timer_time').innerHTML = value;
+  	num_rocks = Math.floor(value)
+    document.getElementById('timer_rock').innerHTML = "🤘".repeat(num_rocks);
+    document.getElementById('timer_time').innerHTML = value.toFixed(1);
   }
 }
 
@@ -51,8 +52,8 @@ function startTimer() {
   var start = Date.now();
   wheelie_timer = setInterval(function() {
     var delta = Date.now() - start;
-    updateTimer(Math.floor(delta / 1000));
-  }, 1000);
+    updateTimer(delta / 1000);
+  }, 100);
 }
 
 function stopTimer() {
