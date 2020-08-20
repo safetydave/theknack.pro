@@ -26,6 +26,8 @@ function handleOrientation(event) {
   updateDisplay('ori_a', event.alpha);
   updateDisplay('ori_b', event.beta);
   updateDisplay('ori_c', event.gamma);
+  
+  showWheelie(event.beta);
 }
 
 
