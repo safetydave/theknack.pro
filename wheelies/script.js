@@ -76,6 +76,11 @@ function stopTimer() {
 function handleOrientation(event) {
   current_pitch = event.beta;
   updateDisplay('ori_b', current_pitch);
+  if (set_threshold_next_event) {
+    pitch_threshold = current_pitch;
+    updateDisplay('pitch_threshold', pitch_threshold);
+    set_threshold_next_event = false;
+  }
   if (session_started)
     monitorWheelie(current_pitch);
 }
@@ -84,12 +89,12 @@ var sensors_started = false;
 var session_started = false;
 var current_pitch = 0;
 var pitch_threshold = 50.5;
+var set_threshold_next_event = false;
 
 function setPitchThreshold() {
   if (!sensors_started)
     startSensors();
-  pitch_threshold = current_pitch;
-  updateDisplay('pitch_threshold', pitch_threshold);
+  set_threshold_next_event = true;
 }
 
 function startSession() {
