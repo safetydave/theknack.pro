@@ -25,11 +25,6 @@ function addHistory() {
   }
 }
 
-function handleMotion(event) {
-  //updateDisplay('acc_x', event.acceleration.x);
-  //updateDisplay('interval', event.interval);
-}
-
 var wheel_up = false;
 
 function startWheelie() {
@@ -107,17 +102,10 @@ function startSession() {
 }
 
 function startSensors() {
-  if (
-    DeviceMotionEvent &&
-    typeof DeviceMotionEvent.requestPermission === "function"
-  ) {
+  if (DeviceMotionEvent &&
+      typeof DeviceMotionEvent.requestPermission === "function") {
     DeviceMotionEvent.requestPermission();
   }
-  
-  window.addEventListener("devicemotion", handleMotion);
   window.addEventListener("deviceorientation", handleOrientation);
   sensors_started = true;
 }
-
-//document.addEventListener('DOMContentLoaded', startSensors);
-//document.addEventListener('DOMContentLoaded', loadWam);
