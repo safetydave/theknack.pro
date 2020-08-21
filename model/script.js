@@ -29,18 +29,20 @@ var ts_prev;
 function handleMotion(event) {
   ts_now = Date.now();
   acc = event.acceleration;
+  g = 9.8;
   if (ts_count == 0) {
-    acc_now = [acc.x, acc.y, acc.z];
+    acc_now = [acc.x / g, acc.y / g, acc.z / g];
     ts_prev = ts_now;
     ++ts_count;
   }
   else {
     if (ts_now - ts_prev >= sample_interval) {
         acc_prev = acc_now;
-        acc_now = [acc.x, acc.y, acc.z];
+        acc_now = [acc.x / g, acc.y / g, acc.z / g];
         ts_prev = ts_now;
         ++ts_count;
         predict();
+        if (ts_count < 100) {
         $('#history-data').prepend('<p>'
           + ts_now + ', '
           + ts_prev + ', '
@@ -48,6 +50,7 @@ function handleMotion(event) {
           + acc_prev + ', '
           + wheel_up
           + '</p>');
+        }
     }
   }
   updateDisplay('acc_x', event.acceleration.x);
