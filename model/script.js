@@ -2,24 +2,22 @@ var model;
 
 async function loadWam() {
   model = await tf.loadLayersModel('https://theknack.pro/model/h5js/model.json');
-  //model = await tf.loadLayersModel('h5js/model.json');
 }
+
+function updateDisplay(id, value){
+  if (value != null)
+    document.getElementById(id).innerHTML = value.toFixed(3);
+}
+
+var acc_now = [0, 0, 0];
+var acc_prev = [0, 0, 0];
 
 function predict() {
     console.log('predicting');
     x_arr = acc_prev.concat(acc_now);
     x = tf.tensor([x_arr]);
     y = model.predict(x);
-    updateDisplay('y', y.arraySync()[0], 2)
-    console.log()
-}
-
-var acc_now = [0, 0, 0]
-var acc_prev = [0, 0, 0]
-
-function updateDisplay(id, value, precision=1){
-  if (value != null)
-    document.getElementById(id).innerHTML = value.toFixed(precision);
+    updateDisplay('y', y.arraySync()[0][0]);
 }
 
 var sample_interval = 100;
@@ -44,7 +42,7 @@ function handleMotion(event) {
     }
   }
   updateDisplay('acc_x', event.acceleration.x);
-  updateDisplay('interval', event.interval, 3);
+  updateDisplay('interval', event.interval);
 }
 
 function startSensors() {
@@ -52,6 +50,7 @@ function startSensors() {
       typeof DeviceMotionEvent.requestPermission === "function") {
     DeviceMotionEvent.requestPermission();
   }
+  predict();
   window.addEventListener("devicemotion", handleMotion);
 }
 
