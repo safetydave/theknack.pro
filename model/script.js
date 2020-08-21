@@ -11,13 +11,15 @@ function updateDisplay(id, value){
 
 var acc_now = [0, 0, 0];
 var acc_prev = [0, 0, 0];
+var wheel_up = -1;
 
 function predict() {
     console.log('predicting');
     x_arr = acc_prev.concat(acc_now);
     x = tf.tensor([x_arr]);
     y = model.predict(x);
-    updateDisplay('y', y.arraySync()[0][0]);
+    wheel_up = y.arraySync()[0][0];
+    updateDisplay('y', wheel_up);
 }
 
 var sample_interval = 100;
@@ -39,6 +41,13 @@ function handleMotion(event) {
         ts_prev = ts_now;
         ++ts_count;
         predict();
+        $('#history-data').prepend('<p>'
+          + ts_now + ', '
+          + ts_prev + ', '
+          + acc_now + ', '
+          + acc_prev + ', '
+          + wheel_up
+          + '</p>');
     }
   }
   updateDisplay('acc_x', event.acceleration.x);
