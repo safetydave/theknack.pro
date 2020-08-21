@@ -39,8 +39,6 @@ function handleMotion(event) {
     if (ts_now - ts_prev >= sample_interval) {
         acc_prev = acc_now;
         acc_now = [acc.x / g, acc.y / g, acc.z / g];
-        ts_prev = ts_now;
-        ++ts_count;
         predict();
         if (ts_count < 100) {
         $('#history-data').prepend('<p>'
@@ -50,6 +48,8 @@ function handleMotion(event) {
           + acc_prev + ', '
           + wheel_up
           + '</p>');
+        ts_prev = ts_now;
+        ++ts_count;
         }
     }
   }
