@@ -13,4 +13,25 @@ function predict() {
     console.log(y.arraySync()[0])
 }
 
+function updateDisplay(id, value){
+  if (value != null)
+    document.getElementById(id).innerHTML = value.toFixed(1);
+}
+
+function handleMotion(event) {
+  updateDisplay('acc_x', event.acceleration.x);
+  updateDisplay('interval', event.interval);
+}
+
+var sensors_started = false;
+
+function startSensors() {
+  if (DeviceMotionEvent &&
+      typeof DeviceMotionEvent.requestPermission === "function") {
+    DeviceMotionEvent.requestPermission();
+  }
+  window.addEventListener("devicemotion", handleMotion);
+  sensors_started = true;
+}
+
 document.addEventListener('DOMContentLoaded', loadWam);
