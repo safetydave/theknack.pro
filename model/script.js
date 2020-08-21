@@ -28,7 +28,7 @@ var ts_prev;
 
 function handleMotion(event) {
   ts_now = Date.now();
-  acc = event.acceleration;
+  acc = event.accelerationIncludingGravity;
   g = 9.8;
   if (ts_count == 0) {
     acc_now = [acc.x / g, acc.y / g, acc.z / g];
