@@ -74,29 +74,34 @@ function stopTimer() {
 }
 
 function handleOrientation(event) {
-  //updateDisplay('ori_a', event.alpha);
-  updateDisplay('ori_b', event.beta);
-  //updateDisplay('ori_c', event.gamma);
-  
-  monitorWheelie(event.beta);
   current_pitch = event.beta;
+  updateDisplay('ori_b', current_pitch);
+  if (session_started)
+    monitorWheelie(current_pitch);
 }
 
 var sensors_started = false;
+var session_started = false;
 var current_pitch = 0;
 var pitch_threshold = 50.5;
 
 function setPitchThreshold() {
-  if (sensors_started) {
-    pitch_threshold = current_pitch;
-    updateDisplay('pitch_threshold', pitch_threshold);
-  }
+  if (!sensors_started)
+    startSensors();
+  pitch_threshold = current_pitch;
+  updateDisplay('pitch_threshold', pitch_threshold);
 }
 
-function startSensors() {
+function startSession() {
   wheel_up = false;
   document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
   document.getElementById("start_button").innerHTML = "wheelie session";
+  if (!sensors_started)
+    startSensors();
+  session_started = true;
+}
+
+function startSensors() {
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
@@ -107,7 +112,6 @@ function startSensors() {
   window.addEventListener("devicemotion", handleMotion);
   window.addEventListener("deviceorientation", handleOrientation);
   sensors_started = true;
-  updateDisplay('pitch_threshold', pitch_threshold);
 }
 
 //document.addEventListener('DOMContentLoaded', startSensors);
