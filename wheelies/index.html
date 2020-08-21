@@ -21,30 +21,14 @@
 </head>
 
 <body id="bg" style="font-family:sans-serif;">
-  <div class="container-fluid">
-    <h1 id="start_button" style="text-align:center;"><a href="javascript:startSensors()">start session</a></h1>
-    <p>
-    <!--
-    <a href="javascript:startWheelie()">wheelie start</a>
-    <a href="javascript:stopWheelie()">wheelie stop</a>
-    -->
-    </p>
-    <!-- <h3 style="text-align:center;">orientation</h1> -->
-     <h3 style="text-align:center;">pitch: <span id="ori_b">0</span>&deg;</h3> 
-    <!-- <h3 style="text-align:center;">latest</h1> -->
-     <h3 style="text-align:center;">wheel up: <span id="timer_time">0</span>s</h3>     
-    <h1 style="text-align:center;"><span id="timer_rock"></span></h1>
-    
-    <!--
-     <p>ori a = <span id="ori_a">0</span></p> 
-     <p>ori c = <span id="ori_c">0</span></p> 
-    <h1>Motion</h1>
-     <p>acc x = <span id="acc_x">0</span></p> 
-     <h1>Interval</h1>
-     <p>int = <span id="interval">-1</span></p>
-     -->
-
-  </div>
+  <div class="container-fluid" style="text-align:center;">
+    <h1 id="start_button"><a href="javascript:startSensors()">start session</a></h1>
+    <p></p>
+    <h3>pitch: <span id="ori_b">0</span>&deg;</h3> 
+    <h3>wheel up: <span id="timer_time">0</span>s</h3>     
+    <h1 style="height:2em;"><span id="timer_rock"></span></h1>
+    <h4 style="display:none;">history</h4>
+    </div>
   <!-- Bootstrap stuff -->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
