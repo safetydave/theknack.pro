@@ -44,7 +44,7 @@ function stopWheelie() {
 }
 
 function monitorWheelie(value) {
-  if (value > 50.5) { 
+  if (value > pitch_threshold) { 
     if (!wheel_up) startWheelie();
     wheel_up = true;
     history_exists = true;
@@ -79,8 +79,19 @@ function handleOrientation(event) {
   //updateDisplay('ori_c', event.gamma);
   
   monitorWheelie(event.beta);
+  current_pitch = event.beta;
 }
 
+var sensors_started = false;
+var current_pitch = 0;
+var pitch_threshold = 50.5;
+
+function setPitchThreshold() {
+  if (sensors_started) {
+    pitch_threshold = current_pitch;
+    updateDisplay('pitch_threshold', pitch_threshold);
+  }
+}
 
 function startSensors() {
   wheel_up = false;
@@ -95,6 +106,8 @@ function startSensors() {
   
   window.addEventListener("devicemotion", handleMotion);
   window.addEventListener("deviceorientation", handleOrientation);
+  sensors_started = true;
+  updateDisplay('pitch_threshold', pitch_threshold);
 }
 
 //document.addEventListener('DOMContentLoaded', startSensors);
