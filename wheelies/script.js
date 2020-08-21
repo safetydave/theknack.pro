@@ -1,4 +1,3 @@
-console.log('Hello Wheelies');
 
 async function loadWam() {
   model = await tf.loadLayersModel('https://theknack.pro/wheelies/accel_model/model.json');
@@ -17,6 +16,15 @@ function updateTimer(value){
   }
 }
 
+var history_exists = false;
+var history_rocks = '';
+
+function addHistory() {
+  if (history_exists) {
+	$('#history-data').prepend('<p>' + history_rocks + '</p>');
+  }
+}
+
 function handleMotion(event) {
   //updateDisplay('acc_x', event.acceleration.x);
   //updateDisplay('interval', event.interval);
@@ -27,6 +35,7 @@ var wheel_up = false;
 function startWheelie() {
   startTimer();
   document.getElementById('bg').style = "font-family:sans-serif;background-color:green";
+  addHistory();
 }
 
 function stopWheelie() {
@@ -38,6 +47,7 @@ function monitorWheelie(value) {
   if (value > 50.5) { 
     if (!wheel_up) startWheelie();
     wheel_up = true;
+    history_exists = true;
   }
   else {
     if (wheel_up) stopWheelie();
@@ -48,6 +58,9 @@ function monitorWheelie(value) {
 var wheelie_timer;
 
 function startTimer() {
+  history_rocks = document.getElementById('timer_rock').innerHTML;
+  if (history_rocks.length < 1)
+    history_rocks = "🚲"
   updateTimer(0);
   var start = Date.now();
   wheelie_timer = setInterval(function() {
