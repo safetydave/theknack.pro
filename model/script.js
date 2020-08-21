@@ -53,7 +53,9 @@ function handleMotion(event) {
         }
     }
   }
-  updateDisplay('acc_x', event.acceleration.x);
+  updateDisplay('acc_x', acc.x);
+  updateDisplay('acc_y', acc.y);
+  updateDisplay('acc_z', acc.z);
   updateDisplay('interval', event.interval);
 }
 
