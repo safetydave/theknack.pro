@@ -29,8 +29,8 @@ function stopWheelie() {
 }
 
 
-var acc_prev = [0, 0, 0];
-var acc_now = [0, 0, 0];
+var acc_prev = [0, 0, -1];
+var acc_now = [0, 0, -1];
 var wheel_score = -1;
 var wheel_up = false;
 
@@ -127,7 +127,6 @@ function startSensors() {
       typeof DeviceMotionEvent.requestPermission === "function") {
     DeviceMotionEvent.requestPermission();
   }
-  predict();
   window.addEventListener("devicemotion", handleMotion);
   startSession();
 }
