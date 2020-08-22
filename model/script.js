@@ -26,7 +26,6 @@ function addHistory() {
   }
 }
 
-
 function startWheelie() {
   startTimer();
   $('#bg').css('background-color','green');
@@ -103,10 +102,11 @@ function handleMotion(event) {
   }
   else {
     if (ts_now - ts_prev >= sample_interval) {
-        acc_prev = acc_now;
-        acc_now = normAcc(acc);
-        predict();
-        if (ts_count < 10) {
+      acc_prev = acc_now;
+      acc_now = normAcc(acc);
+      predict();
+
+      if (ts_count < 0) {
         $('#history-log').prepend('<p>'
           + ts_now + ', '
           + ts_prev + ', '
@@ -114,9 +114,10 @@ function handleMotion(event) {
           + acc_prev + ', '
           + wheel_up
           + '</p>');
-        ts_prev = ts_now;
-        ++ts_count;
-        }
+      }
+
+      ts_prev = ts_now;
+      ++ts_count;
     }
   }
   updateDisplay('acc_x', acc.x);
