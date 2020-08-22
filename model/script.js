@@ -33,11 +33,12 @@ var MU = [-0.546, -0.746, -0.009];
 var STD = [0.431, 0.285, 0.233];
 
 function normComp(comp, i) {
-  return (comp / G - MU[i]) / STD[i];
+  return (comp / G);
+  //return (comp / G - MU[i]) / STD[i];
 }
 
 function normAcc(acc) {
-  return [normComp(acc.x, 0), normComp(acc.y, 1), normComp(acc.z, 2)]
+  return [normComp(acc.x, 0), normComp(acc.y, 1), normComp(acc.z, 2)];
 }
 
 function handleMotion(event) {
