@@ -31,7 +31,7 @@ function startWheelie() {
 
 function stopWheelie() {
   stopTimer();
-  $('#bg').css('background-color', '#999966');
+  $('#bg').css('background-color', '#FFFFAA');
 }
 
 function monitorWheelie(value) {
@@ -90,7 +90,7 @@ function setPitchThreshold() {
 
 function startSession() {
   wheel_up = false;
-  $('#bg').css('background-color', '#999966');
+  $('#bg').css('background-color', '#FFFFAA');
   $('#start_button').html('wheelie session');
   if (!sensors_started)
     startSensors();
