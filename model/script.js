@@ -67,6 +67,13 @@ function handleMotion(event) {
   //updateDisplay('interval', event.interval);
 }
 
+function startSession() {
+  wheel_up = false;
+  $('#bg').css('background-color', 'yellow');
+  $('#start_button').html('wheelie session');
+  session_started = true;
+}
+
 function startSensors() {
   if (DeviceMotionEvent &&
       typeof DeviceMotionEvent.requestPermission === "function") {
@@ -74,6 +81,7 @@ function startSensors() {
   }
   predict();
   window.addEventListener("devicemotion", handleMotion);
+  startSession();
 }
 
 document.addEventListener('DOMContentLoaded', loadWam);
