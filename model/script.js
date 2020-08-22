@@ -32,7 +32,7 @@ function startWheelie() {
     history_rocks = "🚲"
 
   startTimer();
-  $('#bg').css('background-color','green');
+  $('#bg').css('background-color','#52BE80');
 
   addHistory();
   history_exists = true;
@@ -40,7 +40,7 @@ function startWheelie() {
 
 function stopWheelie() {
   stopTimer();
-  $('#bg').css('background-color','yellow');
+  $('#bg').css('background-color','#FFEE00');
 }
 
 
@@ -131,7 +131,7 @@ function handleMotion(event) {
 
 function startSession() {
   wheel_up = false;
-  $('#bg').css('background-color', 'yellow');
+  $('#bg').css('background-color', '#FFEE00');
   $('#start_button').html('wheelie session');
   session_started = true;
 }
