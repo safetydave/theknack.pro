@@ -6,7 +6,7 @@ async function loadWam() {
 
 function updateDisplay(id, value){
   if (value != null)
-    document.getElementById(id).innerHTML = value.toFixed(3);
+    $('#' + id).html(value.toFixed(3));
 }
 
 var acc_prev = [0, 0, 0];
@@ -15,14 +15,14 @@ var wheel_score = -1;
 var wheel_up = false;
 
 function predict() {
-    console.log('predicting');
-    x_arr = acc_prev.concat(acc_now);
-    x = tf.tensor([x_arr]);
-    y = model.predict(x);
-    wheel_score = y.arraySync()[0][0];
-    wheel_up = wheel_score > 0.5;
-    updateDisplay('y', wheel_score);
-    y.dispose();
+  console.log('predicting');
+  x_arr = acc_prev.concat(acc_now);
+  x = tf.tensor([x_arr]);
+  y = model.predict(x);
+  wheel_score = y.arraySync()[0][0];
+  wheel_up = wheel_score > 0.5;
+  updateDisplay('y', wheel_score);
+  y.dispose();
 }
 
 var sample_interval = 100;
