@@ -12,7 +12,7 @@ function updateDisplay(id, value){
 function updateTimer(value) {
   if (value != null) {
     num_rocks = Math.floor(value)
-    $('#timer_rock').html = "🤘".repeat(num_rocks);
+    $('#timer_rock').html("🤘".repeat(num_rocks));
     $('#timer_time').html(value.toFixed(1));
   }
 }
