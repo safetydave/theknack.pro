@@ -17,10 +17,20 @@ function updateTimer(value) {
   }
 }
 
+var history_exists = false;
+var history_rocks = '';
+
+function addHistory() {
+  if (history_exists) {
+	$('#history-data').prepend('<p>' + history_rocks + '</p>');
+  }
+}
+
+
 function startWheelie() {
   startTimer();
   $('#bg').css('background-color','green');
-  //addHistory();
+  addHistory();
 }
 
 function stopWheelie() {
@@ -57,9 +67,9 @@ function predict() {
 var wheelie_timer;
 
 function startTimer() {
-  //history_rocks = document.getElementById('timer_rock').innerHTML;
-  //if (history_rocks.length < 1)
-  //  history_rocks = "🚲"
+  history_rocks = $('#timer_rock').html();
+  if (history_rocks.length < 1)
+    history_rocks = "🚲"
   updateTimer(0);
   var start = Date.now();
   wheelie_timer = setInterval(function() {
