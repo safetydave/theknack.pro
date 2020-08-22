@@ -1,18 +1,14 @@
 
-async function loadWam() {
-  model = await tf.loadLayersModel('https://theknack.pro/wheelies/accel_model/model.json');
-}
-
 function updateDisplay(id, value){
   if (value != null)
-    document.getElementById(id).innerHTML = value.toFixed(1);
+    $('#'+id).html(value.toFixed(1));
 }
 
 function updateTimer(value){
   if (value != null) {
   	num_rocks = Math.floor(value)
-    document.getElementById('timer_rock').innerHTML = "🤘".repeat(num_rocks);
-    document.getElementById('timer_time').innerHTML = value.toFixed(1);
+    $('#timer_rock').html("🤘".repeat(num_rocks));
+    $('#timer_time').html(value.toFixed(1));
   }
 }
 
@@ -29,13 +25,13 @@ var wheel_up = false;
 
 function startWheelie() {
   startTimer();
-  document.getElementById('bg').style = "font-family:sans-serif;background-color:green";
+  $('#bg').css('background-color', 'green');
   addHistory();
 }
 
 function stopWheelie() {
   stopTimer();
-  document.getElementById('bg').style = "font-family:sans-serif;background-color:yellow";
+  $('#bg').css('background-color', 'yellow');
 }
 
 function monitorWheelie(value) {
@@ -53,7 +49,7 @@ function monitorWheelie(value) {
 var wheelie_timer;
 
 function startTimer() {
-  history_rocks = document.getElementById('timer_rock').innerHTML;
+  history_rocks = $('#timer_rock').html();
   if (history_rocks.length < 1)
     history_rocks = "🚲"
   updateTimer(0);
@@ -94,8 +90,8 @@ function setPitchThreshold() {
 
 function startSession() {
   wheel_up = false;
-  document.getElementById("bg").style = "font-family:sans-serif;background-color:yellow";
-  document.getElementById("start_button").innerHTML = "wheelie session";
+  $('#bg').css('background-color', 'yellow');
+  $('#start_button').html('wheelie session');
   if (!sensors_started)
     startSensors();
   session_started = true;
