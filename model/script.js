@@ -9,6 +9,18 @@ function updateDisplay(id, value){
     $('#' + id).html(value.toFixed(3));
 }
 
+function startWheelie() {
+  //startTimer();
+  $('#bg').css('background-color','green');
+  //addHistory();
+}
+
+function stopWheelie() {
+  //stopTimer();
+  $('#bg').css('background-color','yellow');
+}
+
+
 var acc_prev = [0, 0, 0];
 var acc_now = [0, 0, 0];
 var wheel_score = -1;
@@ -20,7 +32,16 @@ function predict() {
   x = tf.tensor([x_arr]);
   y = model.predict(x);
   wheel_score = y.arraySync()[0][0];
-  wheel_up = wheel_score > 0.5;
+  
+  if (wheel_score > 0.5) {
+    if (!wheel_up) startWheelie();
+    wheel_up = true;
+  }
+  else {
+    if (wheel_up) stopWheelie();
+    wheel_up = false;
+  }  
+  
   updateDisplay('y', wheel_score);
   y.dispose();
 }
