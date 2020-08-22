@@ -38,7 +38,8 @@ function normComp(comp, i) {
 }
 
 function normAcc(acc) {
-  return [normComp(acc.x, 0), normComp(acc.y, 1), normComp(acc.z, 2)];
+  // bah why did I do Z, Y, X in notebook??
+  return [normComp(acc.z, 2), normComp(acc.y, 1), normComp(acc.x, 0)];
 }
 
 function handleMotion(event) {
