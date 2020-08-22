@@ -27,9 +27,15 @@ function addHistory() {
 }
 
 function startWheelie() {
+  history_rocks = $('#timer_rock').html();
+  if (history_rocks.length < 1)
+    history_rocks = "🚲"
+
   startTimer();
   $('#bg').css('background-color','green');
+
   addHistory();
+  history_exists = true;
 }
 
 function stopWheelie() {
@@ -66,9 +72,6 @@ function predict() {
 var wheelie_timer;
 
 function startTimer() {
-  history_rocks = $('#timer_rock').html();
-  if (history_rocks.length < 1)
-    history_rocks = "🚲"
   updateTimer(0);
   var start = Date.now();
   wheelie_timer = setInterval(function() {
