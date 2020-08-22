@@ -9,14 +9,22 @@ function updateDisplay(id, value){
     $('#' + id).html(value.toFixed(3));
 }
 
+function updateTimer(value){
+  if (value != null) {
+    //num_rocks = Math.floor(value)
+    //$('#timer_rock').html = "🤘".repeat(num_rocks);
+    $('#timer_time').html(value.toFixed(1));
+  }
+}
+
 function startWheelie() {
-  //startTimer();
+  startTimer();
   $('#bg').css('background-color','green');
   //addHistory();
 }
 
 function stopWheelie() {
-  //stopTimer();
+  stopTimer();
   $('#bg').css('background-color','yellow');
 }
 
@@ -45,6 +53,25 @@ function predict() {
   updateDisplay('y', wheel_score);
   y.dispose();
 }
+
+var wheelie_timer;
+
+function startTimer() {
+  //history_rocks = document.getElementById('timer_rock').innerHTML;
+  //if (history_rocks.length < 1)
+  //  history_rocks = "🚲"
+  updateTimer(0);
+  var start = Date.now();
+  wheelie_timer = setInterval(function() {
+    var delta = Date.now() - start;
+    updateTimer(delta / 1000);
+  }, 100);
+}
+
+function stopTimer() {
+  clearInterval(wheelie_timer);
+}
+
 
 var sample_interval = 100;
 var ts_count = 0;
