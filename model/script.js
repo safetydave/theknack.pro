@@ -9,8 +9,8 @@ function updateDisplay(id, value){
     document.getElementById(id).innerHTML = value.toFixed(3);
 }
 
-var acc_now = [0, 0, 0];
 var acc_prev = [0, 0, 0];
+var acc_now = [0, 0, 0];
 var wheel_score = -1;
 var wheel_up = false;
 
@@ -22,24 +22,17 @@ function predict() {
     wheel_score = y.arraySync()[0][0];
     wheel_up = wheel_score > 0.5;
     updateDisplay('y', wheel_score);
+    y.dispose();
 }
 
 var sample_interval = 100;
 var ts_count = 0;
 var ts_prev;
 
-var G = 9.8;
-var MU = [-0.546, -0.746, -0.009];
-var STD = [0.431, 0.285, 0.233];
-
-function normComp(comp, i) {
-  //return (comp / G);
-  return (comp / G - MU[i]) / STD[i];
-}
+var ESG = 9.8;
 
 function normAcc(acc) {
-  // bah why did I do Z, Y, X in notebook??
-  return [normComp(acc.z, 2), normComp(acc.y, 1), normComp(acc.x, 0)];
+  return [acc.x / ESG, acc.y / ESG, acc.z / ESG];
 }
 
 function handleMotion(event) {
