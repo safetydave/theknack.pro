@@ -9,7 +9,7 @@ function updateDisplay(id, value){
     $('#' + id).html(value.toFixed(3));
 }
 
-function updateTimer(value){
+function updateTimer(value) {
   if (value != null) {
     //num_rocks = Math.floor(value)
     //$('#timer_rock').html = "🤘".repeat(num_rocks);
