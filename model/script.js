@@ -33,8 +33,8 @@ var MU = [-0.546, -0.746, -0.009];
 var STD = [0.431, 0.285, 0.233];
 
 function normComp(comp, i) {
-  return (comp / G);
-  //return (comp / G - MU[i]) / STD[i];
+  //return (comp / G);
+  return (comp / G - MU[i]) / STD[i];
 }
 
 function normAcc(acc) {
@@ -54,7 +54,7 @@ function handleMotion(event) {
         acc_prev = acc_now;
         acc_now = normAcc(acc);
         predict();
-        if (ts_count < 100) {
+        if (ts_count < 10) {
         $('#history-log').prepend('<p>'
           + ts_now + ', '
           + ts_prev + ', '
