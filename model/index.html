@@ -21,8 +21,22 @@
 </head>
 
 <body id="bg" style="font-family:sans-serif;">
+  <div class="container-fluid" style="text-align:center">
+    <div class="row">
+    <div class="col-xs-2">
+      <h1><a href="../" style="text-decoration:none;">&lt;</a></h1>
+    </div>
+    <div class="col-xs-8">
+      <h1 style="margin-bottom:1em;">wheelies ml</h1>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
   <div class="container-fluid" style="text-align:center;">
-    <h1 id="start_button"><a href="javascript:startSensors()">start session</a></h1>
+    <button id="start_button" class="btn btn-primary btn-block" onClick="startSession()">
+      <h3 id="start_button_text">start session</h3>
+    </button>
+  </div>
+  <div class="container-fluid" style="text-align:center;">
     <h3>acceleration</h3>
     <p>x: <span id="acc_x">-</span>m/s<sup>2</sup></p>
     <p>y: <span id="acc_y">-</span>m/s<sup>2</sup></p>
@@ -33,7 +47,7 @@
     <h1 style="min-height:2em;"><span id="timer_rock"></span></h1>
     <div id="history-data"></div>
     <div id="history-log"></div>
-    </div>
+  </div>
   <!-- Bootstrap stuff -->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>

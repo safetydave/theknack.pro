@@ -129,10 +129,17 @@ function handleMotion(event) {
   //updateDisplay('interval', event.interval);
 }
 
+var session_started = false;
+
 function startSession() {
+  if (session_started)
+    return;
   wheel_up = false;
   $('#bg').css('background-color', '#FFEE00');
-  $('#start_button').html('wheelie session');
+  $('#start_button_text').html('session active');
+  $('#start_button').removeClass('btn-primary');
+  $('#start_button').css('background', 'none');
+  $('#start_button').css('border', '1px solid black');
   session_started = true;
 }
 
