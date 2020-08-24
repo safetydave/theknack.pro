@@ -32,18 +32,45 @@
     <div class="col-xs-2"></div>
   </div>
   <div class="container-fluid" style="text-align:center;margin-top:2em;">
+    <div class="row">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-8">
     <button id="start_button" class="btn btn-primary btn-block" onClick="startSensors()">
-      <h3 id="start_button_text">start session</h3>
+      <h4 id="start_button_text">start session</h4>
     </button>
+    </div>
+    <div class="col-xs-2">
+    </div>
+    </div>
   </div>
   <div class="container-fluid" style="text-align:center;">
     <p>all data remains on your device</p>
   </div>
+  <div class="container-fluid" style="text-align:center">
+    <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-2">
+    <p><b>accel:</b></p>
+    </div>
+    <div class="col-xs-2">
+    <p><b><span id="acc_x">0.00</span></b></p>
+    </div>
+    <div class="col-xs-2">
+    <p><b><span id="acc_y">0.00</span></b></p>
+    </div>
+    <div class="col-xs-2">
+    <p><b><span id="acc_z">0.00</span></b></p>
+    </div>
+    <div class="col-xs-2">
+    <p><b>m/s<sup>2</sup></b></p>
+    </div>
+    <div class="col-xs-1">
+    </div>
+    </div
+  </div>
   <div class="container-fluid" style="text-align:center;">
-    <h3>acceleration</h3>
-    <p>x: <span id="acc_x">-</span>m/s<sup>2</sup>
-    y: <span id="acc_y">-</span>m/s<sup>2</sup>
-    z: <span id="acc_z">-</span>m/s<sup>2</sup></p>
     <!-- <p>interval: <span id="interval">-</span>ms</p> -->
     <h1>wheel up: <span id="timer_time">0</span>s</h1>
     <p>ml score: <span id="y">-</span></p>

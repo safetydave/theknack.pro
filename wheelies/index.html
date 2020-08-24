@@ -27,23 +27,41 @@
     <div class="col-xs-2"></div>
   </div>
   <div class="container-fluid" style="text-align:center;margin-top:2em;">
+    <div class="row">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-8">
     <button id="start_button" class="btn btn-primary btn-block" onClick="startSession()">
-      <h3 id="start_button_text">start session</h3>
+      <h4 id="start_button_text">start session</h4>
     </button>
+    </div>
+    <div class="col-xs-2">
+    </div>
+    </div>
   </div>
   <div class="container-fluid" style="text-align:center;">
     <p>all data remains on your device</p>
   </div>
   <div class="container-fluid" style="text-align:center;">
-    <h3>
-    pitch: <span id="ori_b">0</span>&deg;
-    </h3>
+    <div class="row">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-4">
+    <p><b>pitch: <span id="ori_b">0.0</span>&deg;</b></p>
+    </div>
+    <div class="col-xs-4">
     <p>
     <span id="set_pitch">
     <a href="javascript:setPitchThreshold()" style="text-decoration:none;">🆙</a>
     </span>
     <span id="pitch_threshold">50.5</span>&deg;
     </p>
+    </div>
+    <div class="col-xs-2">
+    </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="text-align:center;">
     <h1>wheel up: <span id="timer_time">0</span>s</h1>
     <h1 style="min-height:2em;"><span id="timer_rock"></span></h1>
     <div id="history-data">
