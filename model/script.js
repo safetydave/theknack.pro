@@ -32,7 +32,7 @@ function stopWheelie() {
 
 var acc_prev = [0, 0, -1];
 var acc_now = [0, 0, -1];
-var wheel_score = -1;
+var wheel_score = 0.0;
 var wheel_up = false;
 
 function predict() {
@@ -76,7 +76,7 @@ function handleMotion(event) {
       acc_now = normAcc(acc);
       predict();
 
-      if (ts_count < 0) {
+      if (ts_count < 10) {
         $('#history-log').prepend('<p>'
           + ts_now + ', '
           + ts_prev + ', '

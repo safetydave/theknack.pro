@@ -11,6 +11,11 @@ div {
   text-align: center;
 }
 
+.readout-large {
+  font-family: 'arial narrow';
+  font-weight: bold;
+}
+
 .sensors-active {
   background-color: #FFEE00;
 }
