@@ -102,10 +102,8 @@ function startSession() {
     return;
   wheel_up = false;
   $('#bg').addClass('sensors-active');
-  $('#start_button_text').html('session active');
-  $('#start_button').removeClass('btn-primary');
-  $('#start_button').css('background', 'none');
-  $('#start_button').css('border', '1px solid black');
+  $('#start-action').css('display', 'none');
+  $('#raw-readout').css('display', 'block');
   session_started = true;
 }
 
