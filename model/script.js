@@ -67,9 +67,9 @@ function handleMotion(event) {
   ard = event.accelerationIncludingGravity;
   acc = {x: ard.x, y: ard.y, z: ard.z};
   if (android) {
-    acc.x = 0; //event.accelerationIncludingGravity.y;
-    acc.y = 0; //event.accelerationIncludingGravity.x;
-    acc.z = 0; //event.accelerationIncludingGravity.z;
+    acc.x = -ard.y;
+    acc.y = -ard.x;
+    acc.z = -ard.z;
   }
   if (ts_count == 0) {
     acc_now = normAcc(acc);
