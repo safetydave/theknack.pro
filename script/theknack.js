@@ -31,3 +31,25 @@ function pushKnackHistory(element, entry) {
   }
   element.prepend('<p>' + mod_entry + '</p>');
 }
+
+// Sample helper
+var ks_array;
+var ks_pointer = 0;
+var KS_INTERVAL = 100;
+var ks_ts_prev = null;
+
+function rollKsPointer() {
+  ks_pointer = (ks_pointer + 1) % ks_array.length;
+}
+
+function tryKnackSample(new_sample) {
+  result = 0;
+  ts_now = Date.now();
+  if (ks_ts_prev === null || ts_now - ks_ts_prev >= KS_INTERVAL) {
+    result = 1;
+    ks_ts_prev = ts_now;
+    ks_array[ks_pointer] = new_sample;
+    rollKsPointer();
+  }
+  return result;
+}

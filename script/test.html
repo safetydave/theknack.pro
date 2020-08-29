@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Testing the Knack</title>
+  <script src="../script/theknack.js"></script>
+</head>
+<body onload="javascript:testAll()">
+  <h1>Testing the Knack Script</h1>
+  <div id="test-all"></div>
+  <h2>Sample Helper</h2>
+  <div id="test-sample"></div>
+  <script>
+
+function testSample() {
+  ks_array = new Array(25);
+  sample = Array.from(Array(450).keys());
+  sample_pointer = 0;
+  hf_interval = 17;
+  
+  start = Date.now()
+  hf_timer = setInterval(function() {
+  	tryKnackSample(sample[sample_pointer]);
+  	sample_pointer++;
+  	if (sample_pointer === sample.length) {
+      clearInterval(hf_timer);
+  	}
+  }, hf_interval);
+  
+  setTimeout(function() {
+    logToDoc('#test-sample', '60Hz in ' + sample.toString());
+    logToDoc('#test-sample', '10Hz out ' + ks_array.toString());
+  }, hf_interval * (sample.length + 1));
+}
+
+  </script>
+  <h2>Delta Helper</h2>
+  <div id="test-delta"></div>
+  <script>
+
+function testDelta() {
+  in_arr = [1, 2, 3, 358, 359, 360];
+}
+
+  </script>
+  <!-- Run all tests -->
+  <script>
+
+var tests = [testSample];
+
+function testAll() {
+  for (i = 0; i < tests.length; i++) {
+  	console.log('Running test ' + i);
+    tests[i]();
+  }
+  $('#test-all').append('<p>' + tests.length + ' tests run (results may be async)</p>');
+}
+
+function logToDoc(element_id, message) {
+  $(element_id).append('<p>' + message + '</p>');
+}
+
+  </script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+</body>
+</html>
