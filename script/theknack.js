@@ -1,4 +1,4 @@
-// Predict helper - for 1 live inference call
+// Predict helper - for 1 synchronous inference call
 function predictLive(model, x_array) {
   x = tf.tensor([x_array]);
   y = model.predict(x);
@@ -21,4 +21,13 @@ function startKnackTimer(update_function) {
 
 function stopKnackTimer() {
   clearInterval(knack_timer);
+}
+
+// History helper
+function pushKnackHistory(element, entry) {
+  mod_entry = entry;
+  if (mod_entry.length < 1) {
+    mod_entry = "🚲"
+  }
+  element.prepend('<p>' + mod_entry + '</p>');
 }

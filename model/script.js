@@ -17,26 +17,11 @@ function updateTimer(value) {
   }
 }
 
-var history_exists = false;
-var history_rocks = '';
-
-function addHistory() {
-  if (history_exists) {
-	$('#history-data').prepend('<p>' + history_rocks + '</p>');
-  }
-}
-
 function startWheelie() {
-  history_rocks = $('#timer_rock').html();
-  if (history_rocks.length < 1)
-    history_rocks = "🚲"
-
-  startKnackTimer();
+  pushKnackHistory($('#history-data'), $('#timer_rock').html());
+  startKnackTimer(updateTimer);
   $('#bg').addClass('wheelie-active');
   $('#bg').removeClass('sensors-active');
-
-  addHistory();
-  history_exists = true;
 }
 
 function stopWheelie() {
@@ -44,7 +29,6 @@ function stopWheelie() {
   $('#bg').addClass('sensors-active');
   $('#bg').removeClass('wheelie-active');
 }
-
 
 var acc_prev = [0, 0, -1];
 var acc_now = [0, 0, -1];
@@ -109,7 +93,6 @@ function handleMotion(event) {
   updateDisplay('acc_x', acc.x);
   updateDisplay('acc_y', acc.y);
   updateDisplay('acc_z', acc.z);
-  //updateDisplay('interval', event.interval);
 }
 
 var session_started = false;
