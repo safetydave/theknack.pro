@@ -53,3 +53,28 @@ function tryKnackSample(new_sample) {
   }
   return result;
 }
+
+// Delta angle helper
+function dotProd2(a, b) {
+  return a[0] * b[0] + a[1] * b[1];
+}
+
+function crossProd2(a, b) {
+  return a[0] * b[1] - a[1] * b[0];
+}
+
+function deg2rad(deg) {
+  return deg * Math.PI / 180.0;
+}
+
+function ang2vec(ang) {
+  return [Math.cos(ang), Math.sin(ang)];
+}
+
+function angBetween(ang0, ang1) {
+  v0 = ang2vec(ang0);
+  v1 = ang2vec(ang1);
+  angSize = Math.acos(dotProd2(v0, v1));
+  angCross = crossProd2(v0, v1);
+  return [angSize, angCross];
+}

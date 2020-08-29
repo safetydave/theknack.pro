@@ -38,14 +38,26 @@ function testSample() {
   <script>
 
 function testDelta() {
-  in_arr = [1, 2, 3, 358, 359, 360];
+  in_arr = [1, 2, 3, 358, 359, 270];
+  ar = deg2rad(in_arr[0]);
+  br = deg2rad(in_arr[5]);
+  console.log('angs rad: ' + ar + ',' + br);
+  va = ang2vec(ar);
+  vb = ang2vec(br);
+  console.log('vecs: ' + va + ',' + vb);
+  dot = dotProd2(va, vb);
+  console.log(dot);
+  console.log(Math.acos(dot));
+
+  logToDoc('#test-delta', angBetween(ar, br));
+  logToDoc('#test-delta', angBetween(br, ar));
 }
 
   </script>
   <!-- Run all tests -->
   <script>
 
-var tests = [testSample];
+var tests = [testSample, testDelta];
 
 function testAll() {
   for (i = 0; i < tests.length; i++) {
