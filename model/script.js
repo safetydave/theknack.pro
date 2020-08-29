@@ -18,7 +18,7 @@ function updateTimer(value) {
 }
 
 function startWheelie() {
-  pushKnackHistory($('#history-data'), $('#timer_rock').html());
+  #pushKnackHistory($('#history-data'), $('#timer_rock').html());
   startKnackTimer(updateTimer);
   $('#bg').addClass('wheelie-active');
   $('#bg').removeClass('sensors-active');
@@ -76,7 +76,7 @@ function handleMotion(event) {
       acc_now = normAcc(acc);
       predict();
 
-      if (ts_count < 10) {
+      if (ts_count < 0) {
         $('#history-log').prepend('<p>'
           + ts_now + ', '
           + ts_prev + ', '
