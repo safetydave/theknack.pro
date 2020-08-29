@@ -67,14 +67,25 @@ function deg2rad(deg) {
   return deg * Math.PI / 180.0;
 }
 
+function rad2deg(rad) {
+  return rad * 180.0 / Math.PI;
+}
+
 function ang2vec(ang) {
   return [Math.cos(ang), Math.sin(ang)];
 }
 
-function angBetween(ang0, ang1) {
+function angleBetween(ang0, ang1) {
   v0 = ang2vec(ang0);
   v1 = ang2vec(ang1);
   angSize = Math.acos(dotProd2(v0, v1));
   angCross = crossProd2(v0, v1);
   return [angSize, angCross];
+}
+
+function asAngleDeltas(arr) {
+  ang0 = arr[0];
+  return arr.map(function(x) {
+    return angleBetween(ang0, x)[0];
+  });
 }
