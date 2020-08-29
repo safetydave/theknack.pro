@@ -65,6 +65,11 @@ function normAcc(acc) {
 function handleMotion(event) {
   ts_now = Date.now();
   acc = event.accelerationIncludingGravity;
+  if (android) {
+    acc.x = event.accelerationIncludingGravity.y;
+    acc.y = event.accelerationIncludingGravity.x;
+    acc.z = event.accelerationIncludingGravity.z;
+  }
   if (ts_count == 0) {
     acc_now = normAcc(acc);
     ts_prev = ts_now;
@@ -96,6 +101,7 @@ function handleMotion(event) {
 }
 
 var session_started = false;
+var android = false;
 
 function startSession() {
   if (session_started)
@@ -112,6 +118,8 @@ function startSensors() {
       typeof DeviceMotionEvent.requestPermission === "function") {
     DeviceMotionEvent.requestPermission();
   }
+  userAgent = navigator.userAgent.toLowerCase();
+  android = userAgent.indexOf("android") > -1;
   window.addEventListener("devicemotion", handleMotion);
   startSession();
 }
