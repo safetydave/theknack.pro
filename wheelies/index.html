@@ -26,11 +26,11 @@
       <h4><a href="../">&lt;</a></h4>
     </div>
     <div class="col-xs-8">
-      <h4 style="margin-bottom:1em;">wheelies</h4>
+      <h4 style="margin-bottom:3em;">wheelies</h4>
     </div>
     <div class="col-xs-2"></div>
   </div>
-  <div class="container-fluid" style="margin-top:2em;">
+  <div id="start-action" class="container-fluid">
     <div class="row">
     <div class="col-xs-2">
     </div>
@@ -38,20 +38,18 @@
     <button id="start_button" class="btn btn-primary btn-block" onClick="startSession()">
       <h4 id="start_button_text">start session</h4>
     </button>
+    <p>all data remains on your device</p>
     </div>
     <div class="col-xs-2">
     </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <p>all data remains on your device</p>
-  </div>
-  <div class="container-fluid">
+  <div id="raw-readout" class="container-fluid">
     <div class="row">
     <div class="col-xs-2">
     </div>
     <div class="col-xs-4">
-    <p><b>pitch: <span id="ori_b">0.0</span>&deg;</b></p>
+    <p>pitch: <span id="ori_b">0.0</span>&deg;</b></p>
     </div>
     <div class="col-xs-4">
     <p>
@@ -66,7 +64,8 @@
     </div>
   </div>
   <div class="container-fluid">
-    <h1>wheel up: <span id="timer_time">0</span>s</h1>
+    <p class="readout-large"><span id="timer_time">0.0</span></p>
+    <p>seconds wheel up</p>
     <h1 style="min-height:2em;"><span id="timer_rock"></span></h1>
     <div id="history-data">
     </div>

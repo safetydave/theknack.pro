@@ -11,9 +11,20 @@ div {
   text-align: center;
 }
 
+#start-action {
+  height:6em;
+}
+
+#raw-readout {
+  height:6em;
+  display: none;
+}
+
 .readout-large {
   font-family: 'arial narrow';
   font-weight: bold;
+  font-size: 10em;
+  margin-bottom: -0.2em;
 }
 
 .sensors-active {
