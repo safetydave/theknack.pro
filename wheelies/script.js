@@ -31,7 +31,7 @@ function startWheelie() {
 }
 
 function stopWheelie() {
-  stopTimer();
+  stopKnackTimer();
   $('#bg').addClass('sensors-active');
   $('#bg').removeClass('wheelie-active');
 }
@@ -48,22 +48,11 @@ function monitorWheelie(value) {
   }
 }
 
-var wheelie_timer;
-
 function startTimer() {
   history_rocks = $('#timer_rock').html();
   if (history_rocks.length < 1)
     history_rocks = "🚲"
-  updateTimer(0);
-  var start = Date.now();
-  wheelie_timer = setInterval(function() {
-    var delta = Date.now() - start;
-    updateTimer(delta / 1000);
-  }, 100);
-}
-
-function stopTimer() {
-  clearInterval(wheelie_timer);
+  startKnackTimer(updateTimer);
 }
 
 function handleOrientation(event) {

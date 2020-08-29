@@ -54,7 +54,7 @@ var wheel_up = false;
 function predict() {
   console.log('predicting');
   x_arr = acc_prev.concat(acc_now);
-  wheel_score = predict_live(model, x_arr);
+  wheel_score = predictLive(model, x_arr);
   
   if (wheel_score > 0.5) {
     if (!wheel_up) startWheelie();
