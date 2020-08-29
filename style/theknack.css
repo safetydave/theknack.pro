@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+
+.sensors-active {
+  background-color: #FFEE00;
+}
+
+.sensors-inactive {
+  background-color: white;
+}
+
+.wheelie-active {
+  background-color: #52BE80;
+}

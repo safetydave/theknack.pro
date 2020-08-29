@@ -25,13 +25,15 @@ var wheel_up = false;
 
 function startWheelie() {
   startTimer();
-  $('#bg').css('background-color', '#52BE80');
+  $('#bg').addClass('wheelie-active');
+  $('#bg').removeClass('sensors-active');
   addHistory();
 }
 
 function stopWheelie() {
   stopTimer();
-  $('#bg').css('background-color', '#FFEE00');
+  $('#bg').addClass('sensors-active');
+  $('#bg').removeClass('wheelie-active');
 }
 
 function monitorWheelie(value) {
@@ -92,7 +94,7 @@ function startSession() {
   if (session_started)
     return;
   wheel_up = false;
-  $('#bg').css('background-color', '#FFEE00');
+  $('#bg').addClass('sensors-active');
   $('#start_button_text').html('session active');
   $('#start_button').removeClass('btn-primary');
   $('#start_button').css('background', 'none');
