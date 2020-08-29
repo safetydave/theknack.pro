@@ -54,9 +54,7 @@ var wheel_up = false;
 function predict() {
   console.log('predicting');
   x_arr = acc_prev.concat(acc_now);
-  x = tf.tensor([x_arr]);
-  y = model.predict(x);
-  wheel_score = y.arraySync()[0][0];
+  wheel_score = predict_live(model, x_arr);
   
   if (wheel_score > 0.5) {
     if (!wheel_up) startWheelie();
@@ -68,7 +66,6 @@ function predict() {
   }  
   
   updateDisplay('y', wheel_score);
-  y.dispose();
 }
 
 var wheelie_timer;
