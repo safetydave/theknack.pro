@@ -64,7 +64,8 @@ function normAcc(acc) {
 
 function handleMotion(event) {
   ts_now = Date.now();
-  acc = event.accelerationIncludingGravity;
+  ard = event.accelerationIncludingGravity;
+  acc = {x: ard.x, y: ard.y, z: ard.z};
   if (android) {
     acc.x = 0; //event.accelerationIncludingGravity.y;
     acc.y = 0; //event.accelerationIncludingGravity.x;
