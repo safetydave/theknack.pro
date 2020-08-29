@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <title>Testing the Knack</title>
+
+  <!-- Import TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+
+  <!-- Script for testing -->
   <script src="../script/theknack.js"></script>
 </head>
 <body onload="javascript:testAll()">
@@ -51,10 +56,44 @@ function testDelta() {
 }
 
   </script>
+  <h2>Coach Prediction</h2>
+  <div id="test-coach"></div>
+  <script>
+
+var duration_model;
+
+async function loadCoach() {
+  duration_model = await tf.loadLayersModel('https://theknack.pro/wheelies/duration_model/model.json');
+  tryCoachPrediction();
+}
+
+document.addEventListener('DOMContentLoaded', loadCoach);
+
+var X = [];
+
+function testCoach() {
+  logToDoc('#test-coach', 'Hello Coach');
+
+  for (i = 0; i < 25; i++) {
+    X[i] = [0, 0, 0];
+  }
+
+  logToDoc('#test-coach', X);
+}
+
+function tryCoachPrediction() {
+  logToDoc('#test-coach', duration_model);
+  dur_pred = predictLive(duration_model, X);
+  logToDoc('#test-coach', dur_pred);
+
+}
+
+  </script>
+
   <!-- Run all tests -->
   <script>
 
-var tests = [testSample, testDelta];
+var tests = [testSample, testDelta, testCoach];
 
 function testAll() {
   for (i = 0; i < tests.length; i++) {

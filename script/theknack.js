@@ -63,12 +63,15 @@ function crossProd2(a, b) {
   return a[0] * b[1] - a[1] * b[0];
 }
 
+var DEG2RAD = Math.PI / 180.0;
+var RAD2DEG = 180.0 / Math.PI;
+
 function deg2rad(deg) {
-  return deg * Math.PI / 180.0;
+  return deg * DEG2RAD;
 }
 
 function rad2deg(rad) {
-  return rad * 180.0 / Math.PI;
+  return rad * RAD2DEG;
 }
 
 function ang2vec(ang) {
