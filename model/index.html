@@ -31,11 +31,12 @@
       <h4><a href="../">&lt;</a></h4>
     </div>
     <div class="col-xs-8">
-      <h4 style="margin-bottom:1em;">wheelies ml</h4>
+      <h4 style="margin-bottom:3em;">wheelies ml</h4>
     </div>
     <div class="col-xs-2"></div>
+    </div>
   </div>
-  <div class="container-fluid" style="margin-top:2em;">
+  <div id="start-action" class="container-fluid">
     <div class="row">
     <div class="col-xs-2">
     </div>
@@ -43,39 +44,38 @@
     <button id="start_button" class="btn btn-primary btn-block" onClick="startSensors()">
       <h4 id="start_button_text">start session</h4>
     </button>
+    <p>all data remains on your device</p>
     </div>
     <div class="col-xs-2">
     </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <p>all data remains on your device</p>
-  </div>
-  <div class="container-fluid">
+  <div id="raw-readout" class="container-fluid">
     <div class="row">
     <div class="col-xs-1">
     </div>
     <div class="col-xs-2">
-    <p><b>accel:</b></p>
+    <p>accel:</p>
     </div>
     <div class="col-xs-2">
-    <p><b><span id="acc_x">0.00</span></b></p>
+    <p><span id="acc_x">0.00</span></p>
     </div>
     <div class="col-xs-2">
-    <p><b><span id="acc_y">0.00</span></b></p>
+    <p><span id="acc_y">0.00</span></p>
     </div>
     <div class="col-xs-2">
-    <p><b><span id="acc_z">0.00</span></b></p>
+    <p><span id="acc_z">0.00</span></p>
     </div>
     <div class="col-xs-2">
-    <p><b>m/s<sup>2</sup></b></p>
+    <p>m/s<sup>2</sup></p>
     </div>
     <div class="col-xs-1">
     </div>
-    </div
+    </div>
   </div>
-  <div class="container-fluid" style="text-align:center;">
-    <h1>wheel up: <span id="timer_time">0.0</span>s</h1>
+  <div class="container-fluid">
+    <p class="readout-large"><span id="timer_time">0.0</span></p>
+    <p>seconds wheel up</p>
     <p>ml score: <span id="y">-</span></p>
     <h1 style="min-height:2em;"><span id="timer_rock"></span></h1>
     <div id="history-data"></div>
