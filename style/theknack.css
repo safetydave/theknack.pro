@@ -7,6 +7,10 @@ a {
   color: black;
 }
 
+div {
+  text-align: center;
+}
+
 .sensors-active {
   background-color: #FFEE00;
 }
