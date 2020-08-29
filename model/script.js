@@ -31,7 +31,7 @@ function startWheelie() {
   if (history_rocks.length < 1)
     history_rocks = "🚲"
 
-  startTimer();
+  startKnackTimer();
   $('#bg').addClass('wheelie-active');
   $('#bg').removeClass('sensors-active');
 
@@ -40,7 +40,7 @@ function startWheelie() {
 }
 
 function stopWheelie() {
-  stopTimer();
+  stopKnackTimer();
   $('#bg').addClass('sensors-active');
   $('#bg').removeClass('wheelie-active');
 }
@@ -67,22 +67,6 @@ function predict() {
   
   updateDisplay('y', wheel_score);
 }
-
-var wheelie_timer;
-
-function startTimer() {
-  updateTimer(0);
-  var start = Date.now();
-  wheelie_timer = setInterval(function() {
-    var delta = Date.now() - start;
-    updateTimer(delta / 1000);
-  }, 100);
-}
-
-function stopTimer() {
-  clearInterval(wheelie_timer);
-}
-
 
 var sample_interval = 100;
 var ts_count = 0;
