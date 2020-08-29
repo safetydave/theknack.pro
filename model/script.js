@@ -120,6 +120,7 @@ function startSensors() {
   }
   userAgent = navigator.userAgent.toLowerCase();
   android = userAgent.indexOf("android") > -1;
+  pushKnackHistory($('#history-data'), userAgent);
   window.addEventListener("devicemotion", handleMotion);
   startSession();
 }
