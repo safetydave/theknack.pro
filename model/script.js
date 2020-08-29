@@ -18,7 +18,7 @@ function updateTimer(value) {
 }
 
 function startWheelie() {
-  #pushKnackHistory($('#history-data'), $('#timer_rock').html());
+  pushKnackHistory($('#history-data'), $('#timer_rock').html());
   startKnackTimer(updateTimer);
   $('#bg').addClass('wheelie-active');
   $('#bg').removeClass('sensors-active');
