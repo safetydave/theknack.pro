@@ -57,9 +57,9 @@ div {
 .video-overlay-content {
   position: fixed;
   bottom: 5%;
-  left: 10%;
+  left: 8%;
   background: rgba(255, 255, 255, 0.7);
-  width: 80%;
+  width: 84%;
   padding: 20px;
   border-radius:8px;
 }

@@ -14,10 +14,18 @@
   <link rel="stylesheet" href="style/theknack.css">
 
 </head>
-<body onload="javascript:document.getElementById('fullscreen-video').currentTime = 4.5;">
+<body onload="initVideo()">
   <video id="fullscreen-video" autoplay muted loop>
       <source src="wheely_o8nt.mp4" type="video/mp4">
   </video>
+
+  <script>
+
+  function initVideo() {
+    $('#fullscreen-video').get(0).currentTime = 4.5;
+  }
+
+  </script>
 
   <div class="video-overlay-content">
   
