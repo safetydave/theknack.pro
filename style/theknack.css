@@ -45,3 +45,21 @@ div {
 .wheelie-active {
   background-color: #52BE80;
 }
+
+#fullscreen-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.video-overlay-content {
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  background: rgba(255, 255, 255, 0.5);
+  width: 80%;
+  padding: 20px;
+  border-radius:5px;
+}
