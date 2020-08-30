@@ -54,6 +54,16 @@ div {
   min-height: 100%;
 }
 
+#video-button {
+  width: 5em;
+  padding: 5px;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  border-radius:5px;
+}
+
 .video-overlay-content {
   position: fixed;
   bottom: 5%;
