@@ -9,8 +9,11 @@ function updateDisplay(id, value){
     $('#'+id).html(value.toFixed(1));
 }
 
+var wheelie_time = 0;
+
 function updateTimer(value){
   if (value != null) {
+    wheelie_time = value;
   	num_rocks = Math.floor(value)
     $('#timer_rock').html("🤘".repeat(num_rocks));
     $('#timer_time').html(value.toFixed(1));
@@ -31,19 +34,44 @@ function prepareFeatures() {
   return features;
 }
 
+function resetCoachMessage() {
+  $('#coach_message').html('');
+}
+
+function addCoachMessage(coach_says) {
+  already_said = $('#coach_message').html();
+  $('#coach_message').html(already_said + ',<br/>' + coach_says);
+}
+
 var wheel_up = false;
+var dur_pred = 0;
 
 function startWheelie() {
-  $('#coach_message').html('');
+  wheelie_time = 0;
+  resetCoachMessage();
   $('#history_log').html('');
   pushKnackHistory($('#history-data'), $('#timer_rock').html());
   startKnackTimer(updateTimer);
   setTimeout(function() {
     X = prepareFeatures();
     dur_pred = Math.max(0, predictLive(duration_model, X));
-    $('#coach_message').html(
-      'coach predicts ' + dur_pred.toFixed(1) + 's'
-    );
+    if (isNaN(dur_pred)) {
+      dur_pred = 0;
+    }
+    dur_pred_string = ' (' + dur_pred.toFixed(1) + 's)';
+    coach_says = 'coach missed that';
+    if (dur_pred > 0.1 && dur_pred < 2) {
+      coach_says = 'work on your raise';
+    }
+    if (dur_pred >= 2 && dur_pred < 4) {
+      coach_says = 'raise ok';
+    }
+    if (dur_pred >= 4) {
+      coach_says = 'great raise';
+    }
+    coach_says += dur_pred_string;
+    
+    $('#coach_message').html(coach_says);
     //hist_string = X.map(function(x) { return '<br/>' + x; }) + '<br/>';
     //$('#history-log').html(hist_string);
   }, 500);
@@ -53,6 +81,42 @@ function startWheelie() {
 
 function stopWheelie() {
   stopKnackTimer();
+  if (wheelie_time < 2) {
+   if (dur_pred < 2) {
+     addCoachMessage('keep on working at it');
+   }
+   else if (dur_pred < 4) {
+     addCoachMessage('focus on balance');
+   }
+   else {
+     addCoachMessage('really focus on balance');
+   }
+  }
+  else if (wheelie_time < 4) {
+   if (dur_pred < 2) {
+     addCoachMessage('you improved with balance');
+   }
+   else if (dur_pred < 4) {
+     addCoachMessage('balance ok');
+   }
+   else {
+     addCoachMessage('focus on balance');
+   }
+  }
+  else if (wheelie_time < 8) {
+   if (dur_pred < 2) {
+     addCoachMessage('amazing recovery, great balance');
+   }
+   else if (dur_pred < 4) {
+     addCoachMessage('nice recovery, great balance');
+   }
+   else {
+     addCoachMessage('great balance too, keep it up');
+   }
+  }
+  else {
+    addCoachMessage('super sweet wheelie!');
+  }
   $('#bg').addClass('sensors-active');
   $('#bg').removeClass('wheelie-active');
 }

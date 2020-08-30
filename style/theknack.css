@@ -27,6 +27,13 @@ div {
   margin-bottom: -0.2em;
 }
 
+.coach-msg {
+  background-color: #E74C3C;
+  color: white;
+  border-radius: 5px;
+  padding-top:10px;
+}
+
 .sensors-active {
   background-color: #FFEE00;
 }
