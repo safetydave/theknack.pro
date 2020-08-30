@@ -38,8 +38,8 @@ var ks_pointer = 0;
 var KS_INTERVAL = 100;
 var ks_ts_prev = null;
 
-function rollKsPointer() {
-  ks_pointer = (ks_pointer + 1) % ks_array.length;
+function rollKsPointer(direction=1) {
+  return (ks_pointer + direction) % ks_array.length;
 }
 
 function tryKnackSample(new_sample) {
@@ -49,9 +49,15 @@ function tryKnackSample(new_sample) {
     result = 1;
     ks_ts_prev = ts_now;
     ks_array[ks_pointer] = new_sample;
-    rollKsPointer();
+    ks_pointer = rollKsPointer();
   }
   return result;
+}
+
+function getKnackSamples() {
+  older = ks_array.slice(0, ks_pointer);
+  newer = ks_array.slice(ks_pointer);
+  return older.concat(newer);
 }
 
 // Delta angle helper

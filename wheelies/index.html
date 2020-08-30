@@ -9,6 +9,9 @@
 
   <!-- Bootstrap stuff -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <!-- Import TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
   
   <!-- Import the main script file & common knack utils -->
   <script src="../script/theknack.js"></script>
@@ -78,8 +81,8 @@
     <p class="readout-large"><span id="timer_time">0.0</span></p>
     <p>seconds wheel up</p>
     <h1 style="min-height:2em;"><span id="timer_rock"></span></h1>
-    <div id="history-data">
-    </div>
+    <div id="history-data"></div>
+    <div id="history-log"></div>
   </div>
   <!-- Bootstrap stuff -->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
