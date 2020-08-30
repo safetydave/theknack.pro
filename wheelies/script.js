@@ -81,42 +81,45 @@ function startWheelie() {
 
 function stopWheelie() {
   stopKnackTimer();
+  end_msg = '';
   if (wheelie_time < 2) {
    if (dur_pred < 2) {
-     addCoachMessage('keep on working at it');
+     end_msg = 'keep working at it';
    }
    else if (dur_pred < 4) {
-     addCoachMessage('focus on balance');
+     end_msg = 'focus on balance';
    }
    else {
-     addCoachMessage('really focus on balance');
+     end_msg = 'really focus on balance';
    }
   }
   else if (wheelie_time < 4) {
    if (dur_pred < 2) {
-     addCoachMessage('you improved with balance');
+     end_msg = 'your balance improved';
    }
    else if (dur_pred < 4) {
-     addCoachMessage('balance ok');
+     end_msg = 'balance ok';
    }
    else {
-     addCoachMessage('focus on balance');
+     end_msg = 'focus on balance';
    }
   }
   else if (wheelie_time < 8) {
    if (dur_pred < 2) {
-     addCoachMessage('amazing recovery, great balance');
+     end_msg = 'amazing recovery, balance';
    }
    else if (dur_pred < 4) {
-     addCoachMessage('nice recovery, great balance');
+     end_msg = 'nice recovery, balance';
    }
    else {
-     addCoachMessage('great balance too, keep it up');
+     end_msg = 'great balance, keep it up';
    }
   }
   else {
-    addCoachMessage('super sweet wheelie!');
+    end_msg = 'super sweet wheelie!';
   }
+  
+  addCoachMessage(end_msg + ' (' + wheelie_time.toFixed(1) + 's)');
   $('#bg').addClass('sensors-active');
   $('#bg').removeClass('wheelie-active');
 }
