@@ -14,12 +14,14 @@
   <link rel="stylesheet" href="style/theknack.css">
 
 </head>
-<body onload="initVideo()">
+<body>
   <video id="fullscreen-video" autoplay muted loop>
       <source src="wheely_o8nt.mp4" type="video/mp4">
   </video>
 
   <script>
+
+  document.addEventListener('DOMContentLoaded', initVideo);
 
   function initVideo() {
     video = $('#fullscreen-video').get(0);
