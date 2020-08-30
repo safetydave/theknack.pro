@@ -14,31 +14,23 @@
   <link rel="stylesheet" href="style/theknack.css">
 
 </head>
-<body>
+<body onload="initVideo()">
   <video id="fullscreen-video" autoplay muted loop>
       <source src="wheely_o8nt.mp4" type="video/mp4">
   </video>
 
   <script>
 
-  document.addEventListener('DOMContentLoaded', initVideo);
-
   function initVideo() {
-    video = $('#fullscreen-video').get(0);
-    video.currentTime = 4.5;
-    if (video.paused) {
-      $('#video-button').html('pause');
-    }
+    $('#fullscreen-video').get(0).currentTime = 4.5;
   }
 
   function toggleVideo() {
     video = $('#fullscreen-video').get(0);
     if (video.paused) {
       video.play();
-      $('#video-button').html('pause');
     } else {
       video.pause();
-      $('#video-button').html('play');
     }
   }
 
@@ -50,7 +42,7 @@
     <img style="height:1.5em;width:1.5em;opacity:0.8;" src="img/theknack.png"/>
     the knack
     </h1>
-    <button id="video-button" onclick="toggleVideo()">pause</button>
+    <button id="video-button" onclick="toggleVideo()">video</button>
 
     <div class="container-fluid" style="text-align:center;">
     <div class="row" style="margin-top:30px;margin-bottom:30px;">
