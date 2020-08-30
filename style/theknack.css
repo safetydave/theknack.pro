@@ -62,19 +62,23 @@ div {
 #video-button {
   width: 5em;
   padding: 5px;
-  border: none;
-  background: #333;
-  color: #fff;
+  border: #bbb 1px solid;
+  background: none;
+  color: #bbb;
   cursor: pointer;
-  border-radius:5px;
+  border-radius: 5px;
+  font-size: small;
 }
 
-.video-overlay-content {
+.video-overlay-content-appearance {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius:8px;
+}
+
+.video-overlay-content-position {
   position: fixed;
   bottom: 5%;
   left: 8%;
-  background: rgba(255, 255, 255, 0.7);
   width: 84%;
-  padding: 20px;
-  border-radius:8px;
 }

@@ -36,7 +36,9 @@
 
   </script>
 
-  <div class="video-overlay-content">
+  <div class="video-overlay-content-position">
+    <button id="video-button" style="margin-bottom:40px;" onclick="toggleVideo()">video</button>
+  <div class="video-overlay-content-appearance">
   
     <img style="height:5em;width:5em;opacity:0.8;" src="img/theknack.png"/>
     <p><b>the knack</b></p>
@@ -49,18 +51,16 @@
     </div>
     </div>
 
-    <button id="video-button" style="margin-bottom:40px;" onclick="toggleVideo()">video</button>
-
     <div class="container-fluid">
     <div class="row" style="margin-bottom:10px;">
     <div class="col-xs-2"></div>
     <div style="text-align:left;" class="col-xs-8">       
 
-<!-- Default checked disabled -->
-<div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="defaultCheckedDisabled2" checked disabled>
-  <label class="custom-control-label" for="defaultCheckedDisabled2">wheelies</label>
-</div>
+    <!-- Default checked disabled -->
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="defaultCheckedDisabled2" checked disabled>
+      <label class="custom-control-label" for="defaultCheckedDisabled2">wheelies</label>
+    </div>
   
     </div> 
     <div class="col-xs-2"></div>    
@@ -73,6 +73,7 @@
     </svg></a>
     <h3 style="margin-top:-0.3em">record</h1>
   
+  </div>
   </div>
 
   <!-- Bootstrap stuff -->
