@@ -20,6 +20,11 @@ div {
   display: none;
 }
 
+#start_button {
+  background-color: #52BE80;
+  border: #239B56;
+}
+
 .readout-large {
   font-family: 'arial narrow', 'Avenir Next Condensed Regular', sans-serif;
   font-weight: bold;
