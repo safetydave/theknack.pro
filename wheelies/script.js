@@ -15,8 +15,12 @@ function updateTimer(value){
 var wheel_up = false;
 
 function startWheelie() {
+  $('#coach_message').html('');
   pushKnackHistory($('#history-data'), $('#timer_rock').html());
   startKnackTimer(updateTimer);
+  setTimeout(function() {
+    $('#coach_message').html('coach says keep it up');
+  }, 500);
   $('#bg').addClass('wheelie-active');
   $('#bg').removeClass('sensors-active');
 }
