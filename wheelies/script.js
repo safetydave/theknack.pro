@@ -35,10 +35,12 @@ function prepareFeatures() {
 }
 
 function resetCoachMessage() {
+  $('.coach-msg').css('background', 'none');
   $('#coach_message').html('');
 }
 
 function addCoachMessage(coach_says) {
+  $('.coach-msg').css('background', '#E74C3C');
   already_said = $('#coach_message').html();
   $('#coach_message').html(already_said + ',<br/>' + coach_says);
 }
@@ -62,15 +64,18 @@ function startWheelie() {
     coach_says = 'coach missed that';
     if (dur_pred > 0.1 && dur_pred < 2) {
       coach_says = 'work on your raise';
+      coach_says += dur_pred_string;
     }
     if (dur_pred >= 2 && dur_pred < 4) {
       coach_says = 'raise ok';
+      coach_says += dur_pred_string;
     }
     if (dur_pred >= 4) {
       coach_says = 'great raise';
+      coach_says += dur_pred_string;
     }
-    coach_says += dur_pred_string;
     
+    $('.coach-msg').css('background', '#E74C3C');
     $('#coach_message').html(coach_says);
     //hist_string = X.map(function(x) { return '<br/>' + x; }) + '<br/>';
     //$('#history-log').html(hist_string);
@@ -83,19 +88,25 @@ function stopWheelie() {
   stopKnackTimer();
   end_msg = '';
   if (wheelie_time < 2) {
-   if (dur_pred < 2) {
-     end_msg = 'keep working at it';
+   if (dur_pred < 0.1) {
+     end_msg = 'keep working';
+   }
+   else if (dur_pred < 2) {
+     end_msg = 'keep working';
    }
    else if (dur_pred < 4) {
      end_msg = 'focus on balance';
    }
    else {
-     end_msg = 'really focus on balance';
+     end_msg = 'focus on balance';
    }
   }
   else if (wheelie_time < 4) {
-   if (dur_pred < 2) {
-     end_msg = 'your balance improved';
+   if (dur_pred < 0.1) {
+     end_msg = 'you got it';
+   }
+   else if (dur_pred < 2) {
+     end_msg = 'balance improved';
    }
    else if (dur_pred < 4) {
      end_msg = 'balance ok';
@@ -105,14 +116,17 @@ function stopWheelie() {
    }
   }
   else if (wheelie_time < 8) {
-   if (dur_pred < 2) {
-     end_msg = 'amazing recovery, balance';
+   if (dur_pred < 0.1) {
+     end_msg = 'you got it';
+   }
+   else if (dur_pred < 2) {
+     end_msg = 'nice recovery, balance';
    }
    else if (dur_pred < 4) {
      end_msg = 'nice recovery, balance';
    }
    else {
-     end_msg = 'great balance, keep it up';
+     end_msg = 'great balance';
    }
   }
   else {

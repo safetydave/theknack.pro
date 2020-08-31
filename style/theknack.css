@@ -36,11 +36,15 @@ div {
   margin-bottom: -0.2em;
 }
 
+.above-container {
+  min-height: 7em;
+}
+
 .coach-msg {
-  background-color: #E74C3C;
+  background-color: none;
   color: white;
   border-radius: 5px;
-  padding-top:10px;
+  padding-top: 10px;
 }
 
 .sensors-active {
