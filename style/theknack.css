@@ -11,12 +11,17 @@ div {
   text-align: center;
 }
 
+.navigation-header {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
 #start-action {
-  height:6em;
+  height: 6em;
 }
 
 #raw-readout {
-  height:6em;
+  height: 6em;
   display: none;
 }
 
