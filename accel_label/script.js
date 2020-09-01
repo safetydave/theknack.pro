@@ -1,7 +1,7 @@
 var model;
 
 async function loadWam() {
-  model = await tf.loadLayersModel('https://theknack.pro/model/label_model/model.json');
+  model = await tf.loadLayersModel('https://theknack.pro/accel_label/label_model/model.json');
 }
 
 function updateDisplay(id, value){
