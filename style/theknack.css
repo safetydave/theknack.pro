@@ -81,14 +81,14 @@ div {
 .video-overlay-content-appearance {
   background: rgba(255, 255, 255, 0.7);
   padding: 20px;
-  border-radius: 8px;
-  max-width: 340px;
+  border-radius: 30px;
+  max-width: 315px;
   margin: 0 auto;
 }
 
 .video-overlay-content-position {
   position: fixed;
-  bottom: 5%;
+  bottom: 30px;
   left: 0%;
   width: 100%;
 }
